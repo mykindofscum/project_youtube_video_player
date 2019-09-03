@@ -5,6 +5,8 @@ import { Grid } from '@material-ui/core';
 import { SearchBar, VideoDetail, VideoList } from  './components';
 
 import youtube from './api/youtube';
+const apiKey = `${process.env.REACT_APP_API_KEY}`;
+
 
 class App extends React.Component {
   state = {
@@ -22,7 +24,7 @@ class App extends React.Component {
       params: {
         part: 'snippet',
         maxResults: 5,
-        key: 'AIzaSyCylZ5s6ZpIFtQ-9UiLm8b9ixyzJcD2bwk',
+        key: `${apiKey}`,
         q: searchTerm,
       }
     });
@@ -33,7 +35,7 @@ class App extends React.Component {
   render (){
     const { selectedVideo, videos } = this.state; 
     return (
-      <Grid justify="center" container spacing={10}>
+      <Grid justify="center" container spacing={10} bgcolor="secondary.main">
         <Grid item xs={12}>
           <Grid container spacing={10}>
             <Grid item xs={12}>
